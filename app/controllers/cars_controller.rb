@@ -3,13 +3,16 @@ class CarsController < ApplicationController
     @cars = Car.all
   end
 
-  # def create
-  # @car = Car.new(car_params)
-  # @booking = Booking.find(params[:booking_id])
-  # @car.booking = @booking
-  # end
+  def create
+    @car = Car.new(car_params)
+  end
 
-  # def show
-  # # @car = Car.find
-  # end
+  def new
+    @car = Car.new
+  end
+
+  def car_params
+    params.require(:car).permit(:make, :model, :year, :price)
+  end
+  
 end
