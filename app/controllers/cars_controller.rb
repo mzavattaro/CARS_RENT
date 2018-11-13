@@ -32,7 +32,7 @@ class CarsController < ApplicationController
   def update
     if @car.update(car_params)
       redirect_to car_path(@car)
-    else 
+    else
       render :edit
     end
   end
@@ -47,7 +47,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:make, :model, :year, :price)
+    params.require(:car).permit(:make, :model, :year, :price, :photo)
   end
-  
+
 end
