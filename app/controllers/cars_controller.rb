@@ -6,6 +6,7 @@ class CarsController < ApplicationController
   end
 
   def show
+    @user = User.find(@car.user_id)
   end
 
   def create
