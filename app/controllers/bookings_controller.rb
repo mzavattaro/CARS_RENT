@@ -1,5 +1,9 @@
 class BookingsController < ApplicationController
   
+  def index
+    @bookings = Booking.where(user_id: current_user.id)
+  end
+
   def create
     @booking = Booking.new
     @booking.user = current_user
@@ -9,11 +13,7 @@ class BookingsController < ApplicationController
     redirect_to mybookings_path
   end
 
-  # def update
-  #   if @booking.update()
-  # end
-
-  def my_booking
+  def my_bookings
     @bookings = Booking.where(user_id: current_user.id)
   end
 
