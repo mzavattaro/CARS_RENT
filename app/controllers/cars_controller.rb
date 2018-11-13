@@ -1,5 +1,6 @@
 class CarsController < ApplicationController
   before_action :find_car, only: [:update, :show, :destroy]
+
   def index
     @cars = Car.all
   end
@@ -16,6 +17,7 @@ class CarsController < ApplicationController
     else
       render :new
     end
+
   end
 
   def new
