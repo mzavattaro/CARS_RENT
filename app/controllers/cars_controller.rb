@@ -2,7 +2,11 @@ class CarsController < ApplicationController
   before_action :find_car, only: [:update, :show, :destroy]
 
   def index
-    @cars = Car.all
+    if params[:address]
+      @cars = Car.where(address: params[:address])
+    else
+      @cars = Car.all
+    end
   end
 
   def show
