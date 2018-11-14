@@ -24,11 +24,6 @@ class BookingsController < ApplicationController
   end
 
   def rent_your_car
-    @cars = current_user.cars
-    @bookings = []
-    @cars.each do |car|
-      @bookings = Booking.find(car_id: car.id )
-    end
   end
 
   def destroy
