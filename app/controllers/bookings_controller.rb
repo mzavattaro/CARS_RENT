@@ -20,11 +20,11 @@ class BookingsController < ApplicationController
   end
 
   def my_bookings
-    @bookings = Booking.where(user_id: current_user.id)
+    @bookings = current_user.bookings
   end
 
   def rent_your_car
-    @cars = Car.where(user_id: current_user.id)
+    @cars = current_user.cars
     @bookings = []
     @cars.each do |car|
       @bookings = Booking.find(car_id: car.id )
