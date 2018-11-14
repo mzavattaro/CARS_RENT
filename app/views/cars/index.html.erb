@@ -2,13 +2,14 @@
   <div>
     <h1><span id="banner-typed-text"></span></h1>
     <%= form_tag(cars_path, method: :get) do %>
-    WHERE <%= text_field_tag :address %>
+     <div class="where-text-field"> WHERE <%= text_field_tag :address %></div>
     <%= submit_tag 'Search' %>
     <% end %>
   </div>
 </div>
 
 <div class="container">
+<h2>Your local area's most popular cars:</h2>
   <div class="row">
     <% @cars.each do |car| %>
       <div class="col-xs-12 col-sm-4">
@@ -16,7 +17,7 @@
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
           <div class="card-category">Popular</div>
           <div class="card-description">
-            <p><%= car.make %></p>
+            <div class="car-make"><p><%= car.make %></p></div>
             <p><%= car.model %></p>
             <p><%= car.year %></p>
             <p><%= car.price %></p>
