@@ -5,12 +5,18 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new
-    @booking.user = current_user
-    @booking.car_id = params[:id]
-
-    @booking.save
+    @car = Car.find(params[:id])gst
+    if current_user.id == @car.id
+      
+    else
+      @booking = Booking.new
+      @booking.user = current_user
+      @booking.car_id = params[:id]
+      @booking.save
     redirect_to mybookings_path
+      
+    end
+    
   end
 
   def my_bookings

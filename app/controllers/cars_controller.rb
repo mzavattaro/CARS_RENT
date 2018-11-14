@@ -30,16 +30,27 @@ class CarsController < ApplicationController
   end
 
   def update
-    if @car.update(car_params)
-      redirect_to car_path(@car)
+    if current_user.id == @car.user_id
+      if @car.update(car_params)
+        redirect_to car_path(@car)
+      else
+        render :edit
+      end
     else
-      render :edit
+      flash[:notice] = "You are not allowed to update!!!"
+      redirect_to car_path(@car)
     end
   end
 
   def destroy
-    @car.destroy
-    redirect_to cars_path
+    if current_user.id == @car.user_id
+      @car.destroy
+      redirect_to cars_path
+    else
+      flash[:notice] = "You are not allowed to delete!!!"
+      redirect_to car_path(@car)
+    end
+
   end
 
   def find_car
