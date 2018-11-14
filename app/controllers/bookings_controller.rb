@@ -5,7 +5,7 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @car = Car.find(params[:id])gst
+    @car = Car.find(params[:id])
     if current_user.id == @car.id
       
     else
