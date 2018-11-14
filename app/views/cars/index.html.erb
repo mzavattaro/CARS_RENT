@@ -2,11 +2,14 @@
   <div>
     <h1><span id="banner-typed-text"></span></h1>
     <%= form_tag(cars_path, method: :get) do %>
-     <div class="where-text-field"> WHERE <%= text_field_tag :address %></div>
+     <div class="where-text-field"> 
+     WHERE ? <%= text_field_tag :address %>
     <%= submit_tag 'Search' %>
+    </div>
     <% end %>
   </div>
 </div>
+
 
 <div class="container">
 <h2>Your local area's most popular cars:</h2>
