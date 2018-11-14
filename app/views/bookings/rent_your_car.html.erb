@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Here are all your bookings for your cars:</h1>
+  <h3>Here are all your bookings for your cars:</h1>
   <ul>
     <%= current_user.cars.each do |car| %>
       <li><%= car.id %></li>
@@ -13,3 +13,4 @@
     <% end%>
   </ul>
 </div>
+<!-- update -->
