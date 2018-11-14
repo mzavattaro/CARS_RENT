@@ -1,13 +1,12 @@
-<div class="banner-show-page" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('');">
+<div class="banner-show-page">
   <div>
     <h1><span id="banner-typed-text"></span></h1>
     <%= form_tag(cars_path, method: :get) do %>
-    Address <%= text_field_tag :address %>
+    WHERE <%= text_field_tag :address %>
     <%= submit_tag 'Search' %>
     <% end %>
   </div>
 </div>
-
 
 <div class="container">
   <div class="row">
@@ -17,16 +16,14 @@
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('https://source.unsplash.com/random');">
           <div class="card-category">Popular</div>
           <div class="card-description">
-            <h2><%= car.make %></h2>
-            <h2><%= car.model %></h2>
-            <h2><%= car.year %></h2>
-            <h2><%= car.price %></h2>
-            <p>Very cool, the best</p>
+            <p><%= car.make %></p>
+            <p><%= car.model %></p>
+            <p><%= car.year %></p>
+            <p><%= car.price %></p>
+            <%= link_to "Show", car_path(car)%>
           </div>
-        <!-- # <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/random"> -->
-          <%= link_to "Show", car_path(car)%>
-     
-    
+          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/random">
+       
         </div>
       </div>
     <% end %>
