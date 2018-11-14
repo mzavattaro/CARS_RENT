@@ -1,8 +1,9 @@
-<h1><%= @user.first_name %></h1> 
+<h1><%= @user.first_name %>'s Car</h1>
 <h1><%= @car.model %></h1>
 <h1><%= @car.year %></h1>
 <h1><%= @car.make %></h1>
 <h1><%= @car.price %></h1>
+<%= cl_image_tag(@car.photo.filename, :width=>300) %>
 <%= link_to "Edit", edit_car_path(@car)%>
-<%= link_to "Delete", method: :delete%>
+<%= link_to "Delete", car_path(@car), method: :delete%>
 <%= link_to "Book", booking_car_path(@car)%>
