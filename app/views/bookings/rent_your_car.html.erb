@@ -1,5 +1,5 @@
 <div class="container">
-  <h1>Here are all your bookings:</h1>
+  <h1>Here are all your bookings for your cars:</h1>
   
   <ul>
     <% @bookings.each do |booking| %>
@@ -11,6 +11,7 @@
     <li><%= booking.car.price %></li>
     <%= cl_image_tag(booking.car.photo.filename, :width=>300) %>
     <% end %>
+    <%= link_to "Reject", edit_car_path(@car)%>
   </ul>
   </li>
 </div>
