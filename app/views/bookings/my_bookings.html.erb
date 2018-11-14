@@ -1,11 +1,11 @@
 <div class="container">
   <h1>Here are all your bookings:</h1>
-  <!-this is for someone who wants to rent out their car->
-  <li>
-   <% @bookings.each do |booking| %>
-    <ul>
-    <%= booking.user_id %>
-    </ul>
-  <% end %>
+  
+  <ul>
+    <% @bookings.each do |booking| %>
+    <li><%= booking.user.email %></li>
+    
+    <% end %>
+  </ul>
   </li>
 </div>
