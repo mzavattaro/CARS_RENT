@@ -1,6 +1,6 @@
 <div class="banner-show-page">
   <div style="margin-bottom: 12px;">
-    <h2>Look for your new car?</h2>
+    <h2>Search for your new car</h2>
     <%= form_tag(cars_path, method: :get) do %>
      <div class="where-text-field"> 
       <%= text_field_tag :address %>
@@ -8,6 +8,16 @@
       <% end %>
       </div>
   </div>
+</div>
+
+<div class="form-wrapper" style="width: 400px; margin: 0 auto;">
+    <h2>Choose Your Dates</h2>
+
+    <%= simple_form_for :search, method: "get" do |f| %>
+      <%= f.input :starts_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.input :ends_at, as: :string, required: false, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn btn-primary" %>
+    <% end %>
 </div>
 
 <div class="container">
