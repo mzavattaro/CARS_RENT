@@ -10,10 +10,10 @@ class CarsController < ApplicationController
         lat: flat.latitude
       }
     end
-    if params[:address]
-      @cars = Car.where(address: params[:address])
-    else
+    if params[:address].blank?
       @cars = Car.all
+    else
+      @cars = Car.search_by_address(params[:address])
     end
   end
 
@@ -66,7 +66,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:make, :model, :year, :price, :photo)
+    params.require(:car).permit(:make, :model, :year, :price, :photo, :address)
   end
 
 end
