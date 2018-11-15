@@ -2,7 +2,7 @@
   <div style="margin-bottom: 12px;">
     <h2>Search for your new car</h2>
     <%= form_tag(cars_path, method: :get) do %>
-     <div class="where-text-field"> 
+     <div class="where-text-field">
       <%= text_field_tag :address %>
       <%= submit_tag 'Search' %>
       <% end %>
@@ -26,6 +26,7 @@
     <% @cars.each do |car| %>
       <div class="col-xs-12 col-sm-4">
         <!-- insert <div class="card"> -->
+          <%= link_to "show", car_path(car) %>
         <% if car.photo? %>
         <% image_url = cl_image_path car.photo %>
           <% else %>
