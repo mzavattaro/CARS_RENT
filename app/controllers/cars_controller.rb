@@ -2,6 +2,14 @@ class CarsController < ApplicationController
   before_action :find_car, only: [:update, :show, :destroy]
 
   def index
+    @cars = Car.where.not(latitude: nil, longitude: nil)
+
+    @markers = @cars.map do |flat|
+      {
+        lng: flat.longitude,
+        lat: flat.latitude
+      }
+    end
     if params[:address]
       @cars = Car.where(address: params[:address])
     else
