@@ -3,7 +3,7 @@ class CarsController < ApplicationController
 
   def index
     @cars = Car.where.not(latitude: nil, longitude: nil)
-
+    # @cars_date = Car
     @markers = @cars.map do |flat|
       {
         lng: flat.longitude,
@@ -13,7 +13,7 @@ class CarsController < ApplicationController
     if params[:address].blank?
       @cars = Car.all
     else
-      @cars = Car.search_by_address(params[:address])
+      @cars = Car.search_by_address(params[:address]).where(start_date: Date.parse(params[:start_date])..Date.parse(params[:end_date]))
     end
   end
 
@@ -66,7 +66,7 @@ class CarsController < ApplicationController
   end
 
   def car_params
-    params.require(:car).permit(:make, :model, :year, :price, :photo, :address)
+    params.require(:car).permit(:make, :model, :year, :price, :photo, :address, :start_date, :end_date)
   end
 
 end
