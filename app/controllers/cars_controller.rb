@@ -13,7 +13,7 @@ class CarsController < ApplicationController
     if params[:address].blank?
       @cars = Car.all
     else
-      @cars = Car.where(address: params[:address])
+      @cars = Car.search_by_address(params[:address])
     end
   end
 
