@@ -10,10 +10,10 @@ class CarsController < ApplicationController
         lat: flat.latitude
       }
     end
-    if params[:address]
-      @cars = Car.where(address: params[:address])
-    else
+    if params[:address].blank?
       @cars = Car.all
+    else
+      @cars = Car.where(address: params[:address])
     end
   end
 
