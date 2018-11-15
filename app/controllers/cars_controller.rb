@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :find_car, only: [:update, :show, :destroy]
+  before_action :find_car, only: [:update, :show, :destroy, :edit]
 
   def index
     @cars = Car.where.not(latitude: nil, longitude: nil)
@@ -15,6 +15,9 @@ class CarsController < ApplicationController
     else
       @cars = Car.search_by_address(params[:address]).where(start_date: Date.parse(params[:start_date])..Date.parse(params[:end_date]))
     end
+  end
+
+  def edit
   end
 
   def show
