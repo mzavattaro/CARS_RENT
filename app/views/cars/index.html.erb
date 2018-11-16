@@ -1,60 +1,56 @@
-<div class="banner-show-page">
-  <div style="margin-bottom: 12px;">
-    <h2>Search for your new car</h2>
-    <%= form_tag(cars_path, method: :get) do %>
-     <div class="where-text-field">
-      <%= text_field_tag :address %>
-      <%= submit_tag 'Search' %>
-      <% end %>
-      </div>
-      <div class="form-wrapper" style="width: 400px; margin: 0 auto;">
-        <h2>Choose Your Dates</h2>
-        <%= simple_form_for :search, method: "get" do |f| %>
-          <%= f.input :start_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.input :end_date, as: :string, required: false, input_html: {class: "datepicker"} %>
-          <%= f.button :submit, "Go", class: "btn btn-primary" %>
-        <% end %>
-      </div>
+<div class="search-continer">
+  <div class="car-search-header">
+    <h3>Start your new journey</h3>
   </div>
-</div>
-
-
-
-<div class="container">
-<h4>Your local area's most popular cars:</h4>
-  <div class="row">
-    <% @cars.each do |car| %>
-      <div class="col-xs-12 col-sm-4">
-        <!-- insert <div class="card"> -->
-          <%= link_to "show", car_path(car) %>
-        <% if car.photo? %>
-        <% image_url = cl_image_path car.photo %>
-          <% else %>
-          <% image_url = "un" %>
-        <% end %>
-        <div class="card">
-          <div class="card-image", url(<%= image_url %>);">
-          </div>
-          <div class="card-description">
-            <p>This <%= car.make %> <%= car.model %> <%= car.year %> will be your best new friend on the road</p>
-          </div>
-          <div class="card-description">
-            <p><strong><%= car.year %> AUD per day </strong></p>
-          </div>
-          <div class="card-user">
-            <img class="card-user-image" src="https://kitt.lewagon.com/placeholder/users/random">
-            <div class="card-user-description"><%= car.user.first_name %></div>
-          </div>
-        </div>
+  <div class="form-tag">
+    <%= form_tag(cars_path, method: :get) do %>
+      <div class="where-text-field"> 
+        <%= text_field_tag :address, nil, class: 'search-box' %>
+        <%= text_field_tag :start_date, nil, class: 'datepicker' %>
+        <%= text_field_tag :end_date, nil, class: 'datepicker' %>
+        <%= submit_tag :Go %> 
       </div>
     <% end %>
   </div>
 </div>
+
 <div class="container">
-  <div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  ></div>
+  <div class="row">
+
+    <div class="col-xs-7">
+      <div class="cards-container">
+        <div class="car-cards-title">
+          <h4>Your local area's most popular cars:</h4>
+        </div>
+        <div class="car-cards">
+          <div class="row">
+            <% @cars.each do |car| %>
+              <% if car.photo? %>
+                <% image_url = cl_image_path car.photo %>
+                <% else %>
+                <% image_url = "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b59fb07a91e69c940c63e04bd8b1623d&auto=format&fit=crop&w=2100&q=80" %>
+              <% end %>
+              <div class="col-xs-6">
+                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url %>);">  
+                  <div class="card-description">
+                    <p>This <%= car.make %> <%= car.model %> <%= car.year %> will be your best new friend on the road</p>
+                  </div>
+                  <div class="card-description">
+                    <p><strong><%= car.year %> AUD per day </strong></p>
+                  </div>
+                  <div class="card-user">
+                    <img class="card-user-image" src="https://kitt.lewagon.com/placeholder/users/random">
+                    <div class="card-user-description"><%= car.user.first_name %></div>
+                  </div>
+                </div>
+              </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-5">
+      <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
+    </div>
+  </div>
 </div>
