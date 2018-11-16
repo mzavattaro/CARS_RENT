@@ -29,7 +29,7 @@ leno = "https://res.cloudinary.com/dhbdevaoy/image/upload/v1542331926/leno_buick
 sal = "https://res.cloudinary.com/dhbdevaoy/image/upload/v1542331924/joker_truck.jpg"
 hills = "https://res.cloudinary.com/dhbdevaoy/image/upload/v1542331925/badcar.jpg"
 ellen = "https://res.cloudinary.com/dhbdevaoy/image/upload/v1542331925/stout.jpg"
-bike = "https://res.cloudinary.com/dhbdevaoy/image/upload/v1542331925/stout.jpg"
+bike = "https://res.cloudinary.com/dhbdevaoy/image/upload/v1542331924/2019-CRF-450L-dual-sport-motorcycle-m-gray.jpg"
 fuel = "https://res.cloudinary.com/dhbdevaoy/image/upload/v1542331925/Fuel_Truck.jpg"
 # create here
 car = Car.new(model: "Land Wind", make: "Land Wind", year: 2018, price: 69, address: "270 Queen St, Melbourne")
