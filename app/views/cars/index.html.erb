@@ -8,7 +8,7 @@
         <%= text_field_tag :address, nil, class: 'search-box' %>
         <%= text_field_tag :start_date, nil, class: 'datepicker' %>
         <%= text_field_tag :end_date, nil, class: 'datepicker' %>
-        <%= submit_tag :Go %> 
+        <%= submit_tag :Search %> 
       </div>
     <% end %>
   </div>
@@ -18,11 +18,11 @@
   <div class="row">
 
     <div class="col-xs-7">
-      <div class="cards-container">
+      
         <div class="car-cards-title">
           <h4>Your local area's most popular cars:</h4>
         </div>
-        <div class="car-cards">
+        <div class="card-container">
           <div class="row">
             <% @cars.each do |car| %>
               <% if car.photo? %>
@@ -33,10 +33,10 @@
               <div class="col-xs-6">
                 <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url %>);">  
                   <div class="card-description">
-                    <p>This <%= car.make %> <%= car.model %> <%= car.year %> will be your best new friend on the road</p>
+                    <p> <%= car.make %> <%= car.model %> <%= car.year %></p>
                   </div>
                   <div class="card-description">
-                    <p><strong><%= car.year %> AUD per day </strong></p>
+                    <p><strong>$<%= car.price %> AUD per day </strong></p>
                   </div>
                   <div class="card-user">
                     <img class="card-user-image" src="https://kitt.lewagon.com/placeholder/users/random">
@@ -47,7 +47,7 @@
             <% end %>
           </div>
         </div>
-      </div>
+      
     </div>
     <div class="col-xs-5">
       <div id="map" style="width: 100%; height: 600px;" data-markers="<%= @markers.to_json %>"></div>
