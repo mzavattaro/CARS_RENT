@@ -1,24 +1,76 @@
-.col-xs-6 {
+.card-inner-container {
   padding: 0;
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 8px;
   box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
 }
-.search-continer {
-  margin: auto;
+.search-container {
+  display: flex;
 }
-.where-text-field {
+
+.heading-search {
+  display: flex;
+  text-align: center;
+}
+
+.card2 {
+  display: flex;
+  align-items: center;
+  img {
+    width: 20px;
+  }
+}
+
+.form-tag {
+  display: flex;
+}
+
+.card-user-link {
+  
+}
+
+.search-field {
   color: black;
   margin-bottom: 15px;
+  #address {
+    border: none;
+    height: 50px;
+    width: 350px;
+    border-radius: 8px;
+    box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+  }
+  #start_date {
+    height: 50px;
+    width: 350px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+  }
+  #end_date {
+    height: 50px;
+    width: 350px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+  }
+  input {
+    padding: 8px;
+    border-radius: 4px;
+    box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+  }
 }
+
+
 .card {
   margin: 5px 5px 5px 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  padding: 50px 50px;
+  // padding: 50px 50px;
   size: 50%;
-  border: 2px solid rgba(0, 0, 0, 0.2);
+  // border: 2px solid rgba(0, 0, 0, 0.2);
   border-radius: 8px;
-  box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+  // box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+  background-size: cover;
   
 }
 
@@ -36,12 +88,15 @@
   margin: 5px 0 5px 0;
   p {
     margin: 4px 0 4px 0 !important;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.6);
   }
 }
 .card-user {
   display: flex;
   justify-content: flex-start;
+  padding: 10px;
 }
 .card-user-image {
   height: 40px;
