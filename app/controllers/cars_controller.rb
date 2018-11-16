@@ -1,5 +1,5 @@
 class CarsController < ApplicationController
-  before_action :find_car, only: [:update, :show, :destroy]
+  before_action :find_car, only: [:update, :show, :destroy, :edit]
 
   def index
     @cars = Car.where.not(latitude: nil, longitude: nil)
@@ -19,6 +19,9 @@ class CarsController < ApplicationController
         lat: flat.latitude
       }
     end
+  end
+
+  def edit
   end
 
   def show
