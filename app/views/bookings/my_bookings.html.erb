@@ -1,19 +1,54 @@
 <div class="container">
-  <h3>Here are all your bookings:</h1>
-  
-  <ul>
-    <% @bookings.each do |booking| %>
-    <li><%= booking.user.first_name %> <%= booking.user.id %></li>
-    <li><%= booking.user.address %></li>
-    <li><%= booking.car.make %></li>
-    <li><%= booking.car.model %></li>
-    <li><%= booking.car.year %></li>
-    <li><%= booking.car.price %></li>
-    <li><%= booking.car.user.first_name %></li>
-      <li><%= booking.car.user.id %></li>
-    <%= cl_image_tag(booking.car.photo.filename, :width=>300) %>
-    <% end %>
-  </ul>
-  </li>
+    <div class="row-bookings">
+      <div class="col-xs-12">
+          <div class="message-header"> <h5>Your bookings</h5> </div> 
+          <% @bookings.each do |booking| %>
+          <div class="message">
+              <div class="message-image">
+                <%= cl_image_tag(booking.car.photo.filename, :width=>50, :height=>50) %>
+              </div>
+              <div class="message-name">
+                <h3><%= booking.car.user.first_name %></h3>
+                <!-- <p>Date start</p> -->
+              </div>
+              <div class="message-body">
+                <p><strong><%= booking.car.user.address %></strong></p>
+                <p>
+                  <%= booking.car.make %> <%= booking.car.model %> <%= booking.car.year %>
+                </p>
+              </div>
+              <div class="message-status">
+                <p class="status pending">Cost</p>
+                <p class="price"><%= booking.car.price %></p>
+              </div>
+          </div>
+          <% end %>
+       </div>
+    </div>
+    <div class="row-bookings">
+        <div class="col-xs-12">
+            <div class="message-header"><h5>Lease your vehicle</h5></div> 
+          <% @bookings.each do |booking| %>
+          <div class="message">
+              <img class="card-user-image" src="https://kitt.lewagon.com/placeholder/users/random">
+              <div class="message-name">
+                <h3><%= booking.user.first_name %></h3>
+                <!-- <p>Date start</p> -->
+              </div>
+              <div class="message-body">
+                <p><strong><%= booking.user.address %></strong></p>
+                <p>
+                  <%= booking.car.make %> <%= booking.car.model %> <%= booking.car.year %>
+                </p>
+              </div>
+              <div class="message-status">
+                <p class="status pending">Cost</p>
+                <p class="price"><%= booking.car.price %></p>
+              </div>
+          </div>
+          <% end %>
+        </div>
+    </div>
 </div>
-<!--  --update>
+<ul>
+   

@@ -3,17 +3,19 @@
     margin-top: 50px;
     padding: 20px;
     border-radius: 5px;
+    font-family: 'Khula', sans-serif;
     h1 {
       text-align: center;
       font-weight: bold;
       font-size: 25px;
-      color: #666666;
+      color: rgb(160, 176, 218);;
       margin: 18px;
     }
     .btn {
       width: 100%;
       padding: 10px;
       font-weight: bold;
+      background-color: rgb(160, 176, 218);
     }
     #car_start_date, #car_end_date {
         background-color: white;
