@@ -1,12 +1,24 @@
+.col-xs-6 {
+  padding: 0;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+}
+
 
 .where-text-field {
   color: black;
   margin-bottom: 15px;
 }
 .card {
-  margin: 0px 0 10px 0;
+  margin: 5px 5px 5px 5px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-  padding: 5px 5px;
+  padding: 50px 50px;
+  size: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  box-shadow: 0 20px 34px 0 rgba(0, 0, 0, 0.1);
+  
 }
 
 .card-image {
