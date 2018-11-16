@@ -1,24 +1,27 @@
-<div class="search-continer">
-  <div class="car-search-header">
-    <h3>Start your new journey</h3>
-  </div>
-  <div class="form-tag">
-    <%= form_tag(cars_path, method: :get) do %>
-      <div class="where-text-field"> 
-        <%= text_field_tag :address, nil, class: 'search-box' %>
-        <%= text_field_tag :start_date, nil, class: 'datepicker' %>
-        <%= text_field_tag :end_date, nil, class: 'datepicker' %>
-        <%= submit_tag :Search %> 
-      </div>
-    <% end %>
-  </div>
+<div class="search-container">
+  <div class="heading-search">
+    <div class="car-search-header">
+      
+    </div>
+    <div class="form-tag">
+     
+    </div>
+   </div> 
 </div>
 
 <div class="container">
-  <div class="row">
+  <h3>Start your new journey</h3>
+   <%= form_tag(cars_path, method: :get) do %>
+      <div class="search-field"> 
+        <%= text_field_tag :address, nil, class: 'search-box', placeholder: "location" %>
+        <%= text_field_tag :start_date, nil, class: 'datepicker', placeholder: "start date"%>
+        <%= text_field_tag :end_date, nil, class: 'datepicker', placeholder: "end date" %>
+        <%= submit_tag :Search %>
+      </div>
+    <% end %>
 
+  <div class="row">
     <div class="col-xs-7">
-      
         <div class="car-cards-title">
           <h4>Your local area's most popular cars:</h4>
         </div>
@@ -31,16 +34,23 @@
                 <% image_url = "https://images.unsplash.com/photo-1511919884226-fd3cad34687c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=b59fb07a91e69c940c63e04bd8b1623d&auto=format&fit=crop&w=2100&q=80" %>
               <% end %>
               <div class="col-xs-6">
-                <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%= image_url %>);">  
-                  <div class="card-description">
-                    <p> <%= car.make %> <%= car.model %> <%= car.year %></p>
-                  </div>
-                  <div class="card-description">
-                    <p><strong>$<%= car.price %> AUD per day </strong></p>
-                  </div>
-                  <div class="card-user">
-                    <img class="card-user-image" src="https://kitt.lewagon.com/placeholder/users/random">
-                    <div class="card-user-description"><%= car.user.first_name %></div>
+                <div class="card-inner-container">
+                  <div class="card">
+                    <div class="card-image" style="background-image: url(<%= image_url %>);">
+                    </div>
+                    <div class="card-description">
+                      <p>This <%= car.make %> <%= car.model %> <%= car.year %> will be your best new friend on the road</p>
+                    </div>
+                    <div class="card-description">
+                      <p><strong><%= car.year %> AUD per day </strong></p>
+                    </div>
+                    <div class="card-user">
+                      <img class="card-user-image" src="https://kitt.lewagon.com/placeholder/users/random">
+                      <div class="card-user-description"><%= car.user.first_name %></div>
+                      <div class="card-user-link">
+                        <%= link_to 'Show', car_path(car) %>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -54,3 +64,7 @@
     </div>
   </div>
 </div>
+
+
+
+
