@@ -1,0 +1,32 @@
+h1 {
+  font-weight: lighter;
+  font-size: 65px;
+  color: #85b8e2;
+}
+
+.car-flex {
+  display: flex;
+
+}
+.car-image {
+  flex: 0 0 50%;
+  img {
+    width: 100%;
+  }
+  margin-right: 125px;
+}
+.right-side {
+  flex: 0 0 50%;
+   h2 {
+    font-family: 'Khula', sans-serif;
+    font-size: 75px;
+    // margin-left: 25px;
+    font-weight: ligther;
+  }
+  p {
+  font-size: 45px;
+  font-weight: lighter;
+}
+
+}
+
